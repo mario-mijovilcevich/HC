@@ -1,0 +1,76 @@
+﻿@model IEnumerable<HC.Models.ECOs>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.S)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fey)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Conclusion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.S)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fey)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Conclusion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "SetECOID", new { id=item.ECOID, op="E" }) |
+            @Html.ActionLink("Details", "SetECOID", new { id = item.ECOID, op = "D" }) |
+            @Html.ActionLink("Delete", "SetECOID", new { id = item.ECOID, op = "B" })
+        </td>
+    </tr>
+}
+
+</table>

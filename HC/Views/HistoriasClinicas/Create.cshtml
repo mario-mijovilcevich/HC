@@ -1,0 +1,126 @@
+﻿@model HC.Models.HistoriasClinicas
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-info">Crear Historia Clínica</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4 class="text-primary">Paso 2 / 2</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FactoresRiesgoList, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @foreach (var item in ViewBag.FactoresRiesgo)
+                {
+                    var check = false;
+                    if (Model != null) { check = Model.FactoresRiesgoList.Any(i => i.FactorRiesgoID == item.FactorRiesgoID); };
+                    <div class="checkbox">
+                        <label>
+                            @Html.CheckBox("FactoresRiesgoCheckBoxes", @check, new { Value = @item.FactorRiesgoID })
+                            @item.Descripcion
+                        </label>
+                    </div>
+                    }
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FactoresRiesgo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.FactoresRiesgo, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FactoresRiesgo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AntecedentesList, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @foreach (var item in ViewBag.Antecedentes)
+                {
+                    var check = false;
+                    if (Model != null) { check = Model.AntecedentesList.Any(i => i.AntecedenteID == item.AntecedenteID); };
+                    <div class="checkbox">
+                        <label>
+                            @Html.CheckBox("AntecedentesCheckBoxes", @check, new { Value = @item.AntecedenteID })
+                            @item.Descripcion
+                        </label>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Antecedentes, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Antecedentes, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Antecedentes)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MedicacionesList, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                    @foreach (var item in ViewBag.Medicaciones)
+                    {
+                        var check = false;
+                        if (Model != null) { check = Model.MedicacionesList.Any(i => i.MedicacionID == item.MedicacionID); };
+                        <div class="checkbox">
+                            <label>
+                                @Html.CheckBox("MedicacionesCheckBoxes", @check, new { Value = @item.MedicacionID })
+                                @item.Nombre
+                            </label>
+                        </div>
+                    }
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Medicaciones, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Medicaciones, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Medicaciones)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EstudiosComplementarios, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.EstudiosComplementarios, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EstudiosComplementarios)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.InstitucionesList, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                    @foreach (var item in ViewBag.Instituciones)
+                    {
+                        var check = false;
+                        if (Model != null) { check = Model.InstitucionesList.Any(i => i.InstitucionID == item.InstitucionID); };
+                        <div class="checkbox">
+                            <label>
+                                @Html.CheckBox("InstitucionesCheckBoxes", @check, new { Value = @item.InstitucionID })
+                                @item.Nombre
+                            </label>
+                        </div>
+                    }
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" name="submit" value="<< Volver" id="volver" class="btn btn-default btn-sm active" />
+                <input type="submit" name="submit" value="Guardar" id="guardar" class="btn btn-info btn-sm active" />
+            </div>
+        </div>
+    </div>
+}

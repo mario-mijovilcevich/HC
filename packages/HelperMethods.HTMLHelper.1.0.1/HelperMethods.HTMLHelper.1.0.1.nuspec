@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>HelperMethods.HTMLHelper</id>
+    <version>1.0.1</version>
+    <title>General Helpers to be used in the HTML Helpers packages.</title>
+    <authors>Edgar</authors>
+    <owners>Edgar</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This will add a few helpers for HTML Helpers;
+
+This package can only serve the other HTML Helpers packages that i made and that depend on it. All by itself is a useless package.</description>
+  </metadata>
+</package>

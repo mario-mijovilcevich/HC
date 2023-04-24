@@ -1,0 +1,62 @@
+﻿@model HC.Models.Estudios
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Estudios</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.EstudioID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HistoriaClinicaID, "HistoriaClinicaID", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("HistoriaClinicaID", String.Empty)
+                @Html.ValidationMessageFor(model => model.HistoriaClinicaID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TipoEstudioID, "TipoEstudioID", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("TipoEstudioID", String.Empty)
+                @Html.ValidationMessageFor(model => model.TipoEstudioID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Fecha, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Fecha)
+                @Html.ValidationMessageFor(model => model.Fecha)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Conclusion, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Conclusion)
+                @Html.ValidationMessageFor(model => model.Conclusion)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

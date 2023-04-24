@@ -1,0 +1,161 @@
+﻿@model HC.Models.Laboratorios
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Laboratorios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HistoriasClinicas.FactoresRiesgo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HistoriasClinicas.FactoresRiesgo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pq)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pq)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Na)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Na)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.K)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.K)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Glucosa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Glucosa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HbGlicosilada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HbGlicosilada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Col)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Col)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hdl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hdl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LdlTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LdlTotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Urea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Urea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Creatinina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Creatinina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Otros)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Otros)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

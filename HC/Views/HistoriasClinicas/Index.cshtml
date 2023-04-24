@@ -1,0 +1,70 @@
+﻿@model IEnumerable<HC.Models.HistoriasClinicas>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PacienteID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FactoresRiesgo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Antecedentes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Medicaciones)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstudiosComplementarios)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaCreacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaActualizacion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PacienteID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FactoresRiesgo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Antecedentes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Medicaciones)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstudiosComplementarios)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaCreacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaActualizacion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.HistoriaClinicaID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.HistoriaClinicaID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.HistoriaClinicaID })
+        </td>
+    </tr>
+}
+
+</table>

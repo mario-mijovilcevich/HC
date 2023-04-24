@@ -1,0 +1,59 @@
+﻿@model HC.Models.Consultas
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-info">Nueva Consulta</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+
+        @Html.Hidden("HistoriaClinicaID")
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MotivoConsulta, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.MotivoConsulta, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MotivoConsulta)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EstadoFisico, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.EstadoFisico, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EstadoFisico)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Indicaciones, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Indicaciones, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Indicaciones)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Fecha, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DatePickerFor(model => model.Fecha)
+                @Html.ValidationMessageFor(model => model.Fecha)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @Html.ActionLink("Cancelar", "Index", new { id = Session["HistoriaClinicaID"] }, new { @class = "btn btn-default btn-sm active" })
+                <input type="submit" value="Guardar" class="btn btn-info btn-sm active" />
+            </div>
+        </div>
+    </div>
+}

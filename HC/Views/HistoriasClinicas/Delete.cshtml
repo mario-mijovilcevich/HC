@@ -1,0 +1,81 @@
+﻿@model HC.Models.HistoriasClinicas
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>HistoriasClinicas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PacienteID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PacienteID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FactoresRiesgo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FactoresRiesgo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Antecedentes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Antecedentes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Medicaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Medicaciones)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstudiosComplementarios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstudiosComplementarios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaCreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaCreacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaActualizacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaActualizacion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

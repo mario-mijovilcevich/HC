@@ -1,0 +1,94 @@
+﻿@model HC.Models.Pacientes
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-info">Detalle</h2>
+
+<div>
+	<hr />
+    <dl class="dl-horizontal">       
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellido)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.TiposDocumentos.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TiposDocumentos.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroDocumento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroDocumento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            Edad
+        </dt>
+
+        <dd>
+            @{
+                var date = DateTime.Now.Date.Year - Model.FechaNacimiento.Year;
+
+                @Html.DisplayTextFor(model => date);
+            }
+            años
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ObrasSociales.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ObrasSociales.Nombre)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index", new object { }, new { @class = "btn btn-default btn-sm active" })
+    @Html.ActionLink("Editar", "Edit", new { }, new { @class = "btn btn-info btn-sm active" })
+</p>

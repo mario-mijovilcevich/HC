@@ -1,0 +1,67 @@
+﻿@model HC.Models.PEGs
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PEG</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Basal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Basal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxEsf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxEsf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CfMax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CfMax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CfUtil)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CfUtil)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conclusion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conclusion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit") |
+    @Html.ActionLink("Back to List", "Index")
+</p>

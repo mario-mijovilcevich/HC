@@ -1,0 +1,51 @@
+﻿@model HC.Models.Estudios
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Estudios</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HistoriasClinicas.FactoresRiesgo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HistoriasClinicas.FactoresRiesgo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TiposEstudios.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TiposEstudios.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conclusion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conclusion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EstudioID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

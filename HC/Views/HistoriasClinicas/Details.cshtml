@@ -1,0 +1,106 @@
+﻿@model HC.Models.HistoriasClinicas
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-info">Edición</h2>
+
+<div>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FactoresRiesgoList)
+        </dt>
+
+        <dd>
+            <ul style="padding: 0px 15px">
+                @foreach (var item in Model.FactoresRiesgoList)
+                {
+                    <li>@item.Descripcion</li>
+
+                }
+            </ul>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FactoresRiesgo)
+        </dt>
+
+        <dd>
+            @Html.TextAreaFor(model => model.FactoresRiesgo,  new { @class = "form-control", @disabled = "disabled" })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AntecedentesList)
+        </dt>
+
+        <dd>
+            <ul style="padding: 0px 15px">
+                @foreach (var item in Model.AntecedentesList)
+                {
+                    <li>@item.Descripcion</li>
+                }
+             </ul>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Antecedentes)
+        </dt>
+
+        <dd>
+            @Html.TextAreaFor(model => model.Antecedentes, new { @class = "form-control", @disabled = "disabled" })
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.MedicacionesList)
+        </dt>
+
+        <dd>
+            <ul style="padding: 0px 15px">
+                @foreach (var item in Model.MedicacionesList)
+                {
+                    <li>@item.Nombre</li>
+                }
+            </ul>
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Medicaciones)
+        </dt>
+
+        <dd>
+            @Html.TextAreaFor(model => model.Medicaciones, new { @class = "form-control", @disabled = "disabled" })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstudiosComplementarios)
+        </dt>
+
+        <dd>
+            @Html.TextAreaFor(model => model.EstudiosComplementarios, new { @class = "form-control", @disabled = "disabled" })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaCreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaCreacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaActualizacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaActualizacion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to Lista", "Index", "Pacientes", null, new { @class = "btn btn-default btn-sm active" })
+    @Html.ActionLink("Editar", "Edit", new { id = Model.HistoriaClinicaID }, new { @class = "btn btn-info btn-sm active" })
+</p>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<HC.Models.CCGs>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CCG</h2>
+
+<p>
+    @Html.ActionLink("Nuevo CCG", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tci)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Da)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cx)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Conclusion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tci)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Da)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cx)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Conclusion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "SetCCGID", new { id=item.CCGID, op="E" }) |
+            @Html.ActionLink("Details", "SetCCGID", new { id = item.CCGID, op = "D" }) |
+            @Html.ActionLink("Delete", "SetCCGID", new { id = item.CCGID, op = "B" })
+        </td>
+    </tr>
+}
+
+</table>

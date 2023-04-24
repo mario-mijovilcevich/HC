@@ -1,0 +1,124 @@
+﻿@model IEnumerable<HC.Models.Laboratorios>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hb)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gb)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pq)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Na)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.K)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Glucosa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HbGlicosilada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Col)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hdl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LdlTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Urea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Creatinina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Otros)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hb)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gb)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pq)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Na)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.K)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Glucosa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HbGlicosilada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Col)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hdl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LdlTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Urea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Creatinina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Otros)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "SetLaboratorioID", new { id=item.LaboratorioID, op = "E" }) |
+            @Html.ActionLink("Details", "SetLaboratorioID", new { id = item.LaboratorioID, op = "D" }) |
+            @Html.ActionLink("Delete", "SetLaboratorioID", new { id = item.LaboratorioID, op = "B" })
+        </td>
+    </tr>
+}
+
+</table>

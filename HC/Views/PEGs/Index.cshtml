@@ -1,0 +1,64 @@
+﻿@model IEnumerable<HC.Models.PEGs>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Basal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxEsf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CfMax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CfUtil)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Conclusion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Basal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxEsf)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CfMax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CfUtil)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Conclusion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "SetPEGID", new { id=item.PEGID, op='E' }) |
+            @Html.ActionLink("Details", "SetPEGID", new { id = item.PEGID, op = 'D' }) |
+            @Html.ActionLink("Delete", "SetPEGID", new { id = item.PEGID, op = 'B' })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<HC.Models.Pacientes>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-info">Búsqueda de Pacientes</h2>
+<div class="spacer5"></div> 
+<div class="container body-content">
+
+    @using (Ajax.BeginForm("SearchPaciente", "Pacientes", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "SearchPacientePartial" }))
+    {
+        <div class="row">
+            <div class="input-group" style="display:block">
+                @Html.TextBox("searchString", null, new { @class = "form-control", placeholder = "Apellido del Paciente" })
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-info">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <div class="spacer5"></div>
+        <div class="row">
+            @Html.ActionLink("Nuevo Paciente", "Create", new object { }, new { @class = "btn btn-info btn-sm active" })
+        </div>
+    }
+</div>
+<div class="spacer10"></div>
+<div class="row">
+    <div id="SearchPacientePartial"></div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquerymin")
+    @Scripts.Render("~/bundles/jqueryajaxmin")
+
+    <script type="text/javascript">
+
+        function SearchPaciente() {
+            var searchWord = $('#searchString').val();
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("SearchPaciente", "Pacientes")',
+                contentType: "application/json",
+                data: { searchString: searchWord },
+                dataType: "json",
+                success: function () { alert('Success'); }
+            });
+        }
+    </script>
+}

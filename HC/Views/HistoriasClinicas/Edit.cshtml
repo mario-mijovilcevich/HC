@@ -1,0 +1,125 @@
+﻿@model HC.Models.HistoriasClinicas
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-info">Edición</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.HistoriaClinicaID)
+        @Html.HiddenFor(model => model.PacienteID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FactoresRiesgoList, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <table>
+                    @foreach (var item in ViewBag.FactoresRiesgo)
+                    {
+                        var check = Model.FactoresRiesgoList.Any(i => i.FactorRiesgoID == item.FactorRiesgoID);
+                        <tr>
+                            <td>@Html.CheckBox("FactoresRiesgoCheckBoxes", @check, new {  Value = item.FactorRiesgoID })</td>
+                            <td><label>@item.Descripcion</label></td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FactoresRiesgo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.FactoresRiesgo, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FactoresRiesgo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AntecedentesList, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <table>
+                    @foreach (var item in ViewBag.Antecedentes)
+                    {
+                        var check = Model.AntecedentesList.Any(i => i.AntecedenteID == item.AntecedenteID);
+                        <tr>
+                            <td>@Html.CheckBox("AntecedentesCheckBoxes", @check, new { Value = item.AntecedenteID })</td>
+                            <td><label>@item.Descripcion</label></td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Antecedentes, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Antecedentes, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Antecedentes)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MedicacionesList, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <table>
+                    @foreach (var item in ViewBag.Medicaciones)
+                    {
+                        var check = Model.MedicacionesList.Any(i => i.MedicacionID == item.MedicacionID);
+                        <tr>
+                            <td>@Html.CheckBox("MedicacionesCheckBoxes", @check, new { Value = item.MedicacionID })</td>
+                            <td><label>@item.Nombre</label></td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Medicaciones, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Medicaciones, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Medicaciones)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EstudiosComplementarios, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.EstudiosComplementarios, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EstudiosComplementarios)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.InstitucionesList, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <table>
+                    @foreach (var item in ViewBag.Instituciones)
+                    {
+                        var check = Model.InstitucionesList.Any(i => i.InstitucionID == item.InstitucionID);
+                        <tr>
+                            <td>@Html.CheckBox("InstitucionesCheckBoxes", @check, new { Value = item.InstitucionID })</td>
+                            <td><label>@item.Nombre</label></td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+
+        @Html.HiddenFor(model => model.FechaCreacion)
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @Html.ActionLink("Cancelar", "Details", new { id = Model.HistoriaClinicaID }, new { @class = "btn btn-default btn-sm active" })
+                <input type="submit" value="Guardar" class="btn btn-info btn-sm active" />
+            </div>
+        </div>
+    </div>
+}

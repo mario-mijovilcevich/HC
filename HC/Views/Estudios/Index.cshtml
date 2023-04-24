@@ -1,0 +1,48 @@
+﻿@model IEnumerable<HC.Models.Estudios>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Estudio", "Create", new object { }, new { @class = "btn btn-info btn-sm active" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TiposEstudios.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Conclusion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TiposEstudios.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Conclusion)
+        </td>
+        <td>
+            <div class="btn-group btn-group-sm">
+                @Html.ActionLink("Edit", "SetEstudioID", new { id = item.EstudioID, op = "E" }, new { @class = "btn btn-info " })
+                @Html.ActionLink("Details", "SetEstudioID", new { id = item.EstudioID, op = "D" }, new { @class = "btn btn-info " })
+                @Html.ActionLink("Delete", "SetEstudioID", new { id = item.EstudioID, op = "B" }, new { @class = "btn btn-info " })
+            </div>
+</td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,81 @@
+﻿@model HC.Models.CCGs
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CCGs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HistoriasClinicas.FactoresRiesgo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HistoriasClinicas.FactoresRiesgo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tci)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tci)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Da)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Da)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cx)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cx)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conclusion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conclusion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
